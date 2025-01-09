@@ -2,6 +2,26 @@ from flask import Flask, jsonify
 
 app = Flask(__name__)
 
+# Mobile Data
+mobiles = [
+{
+    "name" : "Samsung S23, 128 GB, 32 GBder",
+    "image" : "/content/dam/bajajmall-site/resources/icons/brand-page/img1.svg",
+    "price" : "2,490",
+    "flag" : "Save up to ₹1,000"
+},
+{
+    "name" : "SAMSUNG Galaxy A15 5G (8GB RAM, 128GB, Blue",
+    "image" : "/content/dam/bajajmall-site/resources/icons/brand-page/img2.svg",
+    "price" : "3,876"
+},
+{
+    "name" : "Samsung Galaxy A73 5G (8GB RAM, 256GB, Awesome Gray) Online",
+    "image" : "/content/dam/bajajmall-site/resources/icons/brand-page/img3.svg",
+    "price" : "2,490"
+}
+]
+
 # Full bikes data
 bikes = [
     {
@@ -227,6 +247,11 @@ def get_data():
     }
     return jsonify(data)
 
+# Mobile JSON data
+@app.route('/api/mobiles', methods=['GET'])
+def get_mobiles():
+    return jsonify(mobiles)
+    
 # Bike JSON data
 @app.route('/api/bikes', methods=['GET'])
 def get_bikes():
